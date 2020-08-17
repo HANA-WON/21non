@@ -61,16 +61,80 @@
 <div class="wrap">
     <div class="info">
         <h1>21학년도 논술전형 톺아보기</h1>
-        <h5></h5>
+        <p> </p>
+        <h5>검색창에 희망학과 키워드를 입력해보세요. (예)화학, 국어, 경영 등</h5>
     </div>
     <input id="search" name="search_major" title="학과명검색"
-           placeholder="학과명을 입력해주세요." class="search_major" type="text" value="" maxlength="25">
+           placeholder="학과 키워드 입력" class="search_major" type="text" value="" maxlength="25">
     <a class="btn btn-primary" href="#" role="button">검색</a>
     <table class="table">
+
         <thead>
         <tr>
-            <th scope="col">지역</th>
-            <th scope="col">학교</th>
+            <th scope="col">지역
+                <select class="region-select">
+                    <option selected>전체</option>
+                    <option value="1">서울</option>
+                    <option value="2">경기</option>
+                    <option value="3">인천</option>
+                    <option value="4">강원</option>
+                    <option value="5">경남</option>
+                    <option value="6">경북</option>
+                    <option value="7">광주</option>
+                    <option value="8">대구</option>
+                    <option value="9">대전</option>
+                    <option value="10">부산</option>
+                    <option value="11">세종</option>
+                    <option value="12">울산</option>
+                    <option value="13">전남</option>
+                    <option value="14">전북</option>
+                    <option value="15">제주</option>
+                    <option value="16">충남</option>
+                    <option value="17">충북</option>
+
+                </select>
+            </th>
+            <th scope="col">학교
+            <select class="university-select">
+                    <option selected>전체</option>
+                    <option value="1">가톨릭대학교</option>
+                    <option value="2">가톨릭대학교(2캠)</option>
+                    <option value="3">건국대학교</option>
+                    <option value="4">경기대학교</option>
+                    <option value="5">경기대학교(2캠)</option>
+                    <option value="6">경북대학교</option>
+                    <option value="7">경희대학교</option>
+                    <option value="8">광운대학교</option>
+                    <option value="9">단국대학교</option>
+                    <option value="10">덕성여자대학교</option>
+                    <option value="11">동국대학교</option>
+                    <option value="12">부산대학교</option>
+                    <option value="13">서강대학교</option>
+                    <option value="14">서울과학기술대학교</option>
+                    <option value="15">서울시립대학교</option>
+                    <option value="16">서울여자대학교</option>
+                    <option value="17">성균관대학교</option>
+                    <option value="18">성신여자대학교</option>
+                    <option value="19">세종대학교</option>
+                    <option value="20">숙명여자대학교</option>
+                    <option value="21">숭실대학교</option>
+                    <option value="22">아주대학교</option>
+                    <option value="23">연세대학교</option>
+                    <option value="24">연세대학교(미래)</option>
+                    <option value="25">울산대학교</option>
+                    <option value="26">이화여자대학교</option>
+                    <option value="27">인하대학교</option>
+                    <option value="28">중앙대학교</option>
+                    <option value="29">중앙대학교(2캠)</option>
+                    <option value="30">한국기술교육대학교</option>
+                    <option value="31">한국산업기술대학교</option>
+                    <option value="32">한국외국어대학교</option>
+                    <option value="33">한국항공대학교</option>
+                    <option value="34">한양대학교</option>
+                    <option value="35">한양대학교(ERICA)</option>
+                    <option value="36">홍익대학교</option>
+                </select>
+            </th>
             <th scope="col">학과</th>
             <th scope="col">모집인원</th>
             <th scope="col">2020경쟁률</th>
