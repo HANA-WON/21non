@@ -27,11 +27,12 @@ for page_index in range(1, 69):
       area = result['area_nm']
       univ = result['univ_nm']
       subject = result['cmmn_subjct_nm']
-
-
+      recruit_vol = result['rcnp']
+      compet_rate = result['cmpet_rt']
+      reflec_rate= result['selctn_mth']
 
       document = {
-          'univ': univ, 'subject': subject
+          'univ': univ, 'subject': subject, 'recruit_vol': recruit_vol, 'compet_rate': compet_rate, 'reflec_rate': reflec_rate
       }
       db.nonsul.insert_one(document)
 
