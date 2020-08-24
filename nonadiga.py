@@ -1,21 +1,26 @@
 import requests
-import requests
 
 url = "http://adiga.kr/kcue/ast/eip/eis/inf/selctninf/EipSelctnInfGnrlList.do?p_menu_id=undefined"
 
-payload = 'chk_rcrr=20&chk_slcty=04&cur_year=2021&dgnss_at=Y&dtl_rcbkSerch=N&dtl_serch=N&lst_lgcl_cd=&lst_mdcl_cd=&lst_smcl_cd=&pageIndex=1&pageSize=15&sch_year=2021&sel_area=&sel_rcrr=20&sel_selctn_nm=&sel_slcty=04&sers=&this_sch_year=2021&univ_sort=UP&uv_type=on'
-headers = {
-  'Accept': 'application/json, text/javascript, */*; q=0.01',
-  'X-Requested-With': 'XMLHttpRequest',
-  'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36',
-  'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-}
+page_index = 1
 
-response = requests.request("POST", url, headers=headers, data = payload)
+for page_index in range(1, 3):
+  payload = f'chk_rcrr=20&chk_slcty=04&cur_year=2021&dgnss_at=Y&dtl_rcbkSerch=N&dtl_serch=N&lst_lgcl_cd=&lst_mdcl_cd=&lst_smcl_cd=&pageIndex={page_index}&pageSize=15&sch_year=2021&sel_area=&sel_rcrr=20&sel_selctn_nm=&sel_slcty=04&sers=&this_sch_year=2021&univ_sort=UP&uv_type=on'
+  headers = {
+    'Accept': 'application/json, text/javascript, */*; q=0.01',
+    'X-Requested-With': 'XMLHttpRequest',
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 Safari/537.36',
+    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+  }
 
-import json
-response_json = json.loads(response.text.encode('utf8'))
-print(response_json)
+  response = requests.request("POST", url, headers=headers, data = payload)
+
+  import json
+  response_json = json.loads(response.text.encode('utf8'))
+  print(response_json)
+
+
+
 
 
 # print(response.text.encode('utf8'))     여기 이거 대신 여진님이 올려주시는 코드를 대신 쓸것
