@@ -32,7 +32,7 @@
             margin: auto;
         }
 
-               h1, h5 {
+        h1, h5 {
             display: inline;
         }
 
@@ -41,7 +41,7 @@
             margin-bottom: 30px;
         }
 
-        .search{
+        .search {
             margin-top: 14px;
         }
 
@@ -52,7 +52,36 @@
 
     </style>
     <script>
+        function showScreening() {
+            $.ajax({
+                type: "GET",
+                url: "/nonsul",                //정하는것
+                data: {},
+                success: function (response) {
+                    if (response["result"] == "success") {
+                        var screenings = response["screenings"]
 
+                        for (let i = 0; i < screenings.length; i++) {
+                            var screening = screenings[i]
+                            var univ = screening["univ"]
+                            var subject = screening["subject"]
+                            var recruit_vol = screening["recruit_vol"]
+                            var compet_rate = screening["compet_rate"]
+                            var reflec_rate = screening["reflec_rate"]
+                            var tempHtml = ` <tr>
+                                    <th scope="row">1</th>
+                                    <td>${univ}</td>
+                                    <td>${subject}</td>
+                                    <td>${recruit_vol}</td>
+                                    <td>${compet_rate}</td>
+                                    <td>${reflec_rate}</td>
+                                </tr>`
+                            $('#table').append(tempHtml);
+                        }
+                    }
+                }
+            })
+        }
 
     </script>
 
@@ -66,10 +95,10 @@
         <h1>21학년도 논술전형 톺아보기</h1>
         <p></p>
         <h5>검색창에 희망학과 키워드를 입력해보세요. (예)화학, 국어, 경영 등</h5>
-        <div class = "search">
+        <div class="search">
             <input id="search" name="search_major" title="학과명검색"
-               placeholder="학과 키워드 입력" class="search_major" type="text" value="" maxlength="50">
-        <a class="btn btn-primary" href="#" role="button">검색</a>
+                   placeholder="학과 키워드 입력" class="search_major" type="text" value="" maxlength="50">
+            <a class="btn btn-primary" href="#" role="button" onclick="showScreening()">검색</a>
 
         </div>
 
@@ -152,31 +181,9 @@
 
             </tr>
             </thead>
-            <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>@twitter</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-                <td>@fat</td>
-            </tr>
+            <tbody id="table">
+
+
             </tbody>
         </table>
     </div>

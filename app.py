@@ -8,5 +8,12 @@ db = client.dbsparta  # 'dbsparta'라는 이름의 db를 만들거나 사용합�
 @app.route('/')
 def home():
     return render_template('index.html')
+
+@app.route('/nonsul')
+def screening():
+    screenings = list(db.nonsul.find({}, {'_id': 0}))
+    result = {'result': 'success', "screenings" : screenings}
+    return jsonify(result)
+
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
