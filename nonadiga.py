@@ -32,7 +32,7 @@ for page_index in range(1, 69):
       reflec_rate= result['selctn_mth']
 
       document = {
-          'univ': univ, 'subject': subject, 'recruit_vol': recruit_vol, 'compet_rate': compet_rate, 'reflec_rate': reflec_rate
+          'area': area, 'univ': univ, 'subject': subject, 'recruit_vol': recruit_vol, 'compet_rate': compet_rate, 'reflec_rate': reflec_rate
       }
       db.nonsul.insert_one(document)
 

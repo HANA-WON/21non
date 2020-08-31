@@ -63,6 +63,7 @@
 
                         for (let i = 0; i < screenings.length; i++) {
                             var screening = screenings[i]
+                            var area = screening["area"]
                             var univ = screening["univ"]
                             var subject = screening["subject"]
                             var recruit_vol = screening["recruit_vol"]
@@ -70,6 +71,7 @@
                             var reflec_rate = screening["reflec_rate"]
                             var tempHtml = ` <tr>
                                     <th scope="row">1</th>
+                                    <td>${area}</td>
                                     <td>${univ}</td>
                                     <td>${subject}</td>
                                     <td>${recruit_vol}</td>
