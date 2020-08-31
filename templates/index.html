@@ -52,6 +52,18 @@
 
     </style>
     <script>
+        var queryString = $('#something').val()
+        function showSearchsub() {
+            $.ajax({
+                type: "GET",
+                url: `/nonsul?subject=${queryString}`,
+                data: {},
+                success: function (response) { // 성공하면
+                }
+            })
+        }
+
+
         function showScreening() {
             $.ajax({
                 type: "GET",
@@ -83,6 +95,8 @@
                         }
                     }
                 }
+
+
             })
         }
 
