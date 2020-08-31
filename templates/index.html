@@ -28,7 +28,7 @@
         }
 
         .wrap {
-            width: 900px;
+            width: 1400px;
             margin: auto;
         }
 
@@ -45,23 +45,22 @@
             margin-top: 14px;
         }
 
-        .btn-primary {
-            background-color: forestgreen;
-            border-color: olivedrab;
+        .table {
+            width: content-box;
         }
 
     </style>
     <script>
-        var queryString = $('#something').val()
-        function showSearchsub() {
-            $.ajax({
-                type: "GET",
-                url: `/nonsul?subject=${queryString}`,
-                data: {},
-                success: function (response) { // 성공하면
-                }
-            })
-        }
+        // var queryString = $('#something').val()
+        // function showSearchsub() {
+        //     $.ajax({
+        //         type: "GET",
+        //         url: `/nonsul?subject=${queryString}`,
+        //         data: {},
+        //         success: function (response) { // 성공하면
+        //         }
+        //     })
+        // }
 
 
         function showScreening() {
@@ -127,7 +126,7 @@
 
             <thead>
             <tr>
-                <th scope="col">지역
+                <th scope="col 1">지역
                     <select class="region-select">
                         <option selected>전체</option>
                         <option value="1">서울</option>
@@ -150,7 +149,7 @@
 
                     </select>
                 </th>
-                <th scope="col">학교
+                <th scope="col 2">학교
                     <select class="university-select">
                         <option selected>전체</option>
                         <option value="1">가톨릭대학교</option>
@@ -191,12 +190,13 @@
                         <option value="36">홍익대학교</option>
                     </select>
                 </th>
-                <th scope="col">학과</th>
-                <th scope="col">모집인원</th>
-                <th scope="col">20'경쟁률</th>
-                <th scope="col">반영비율</th>
+                <th scope="col 3">학과</th>
+                <th scope="col 4">모집인원</th>
+                <th scope="col 5">20'경쟁률</th>
+                <th scope="col 6">반영비율</th>
 
             </tr>
+
             </thead>
             <tbody id="table">
 
