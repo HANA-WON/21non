@@ -51,7 +51,8 @@
 
     </style>
     <script>
-        // var queryString = $('#something').val()
+
+        // var queryString = $('#search').val()
         // function showSearchsub() {
         //     $.ajax({
         //         type: "GET",
@@ -61,7 +62,6 @@
         //         }
         //     })
         // }
-
 
         function showScreening() {
             $.ajax({
@@ -90,16 +90,34 @@
                                 </tr>`
                             $('#table').append(tempHtml);
 
-
                         }
                     }
                 }
 
-
             })
+
+        }
+
+        function showAreasel() {
+            $.ajax({
+                type: "GET",
+                url: "/nonsul",
+                data: {},
+                success: function (response) {
+                    if (response["result"] == "success") {
+                            $('#areasel option:selected').val()
+                        }
+
+                    }
+            })
+
         }
 
     </script>
+
+
+
+
 
 </head>
 
@@ -110,7 +128,7 @@
     <div class="info">
         <h1>21학년도 논술전형 톺아보기</h1>
         <p></p>
-        <h5>검색창에 희망학과 키워드를 입력해보세요. (예)화학, 국어, 경영 등</h5>
+        <h4>검색 버튼을 눌러보세요.  (학과 키워드 검색은 준비중입니다.)</h4>
         <div class="search">
             <input id="search" name="search_major" title="학과명검색"
                    placeholder="학과 키워드 입력" class="search_major" type="text" value="" maxlength="50">
@@ -123,78 +141,78 @@
 
     <div class="table">
         <table class="table">
-
             <thead>
             <tr>
-                <th scope="col 1">지역
-                    <select class="region-select">
-                        <option selected>전체</option>
-                        <option value="1">서울</option>
-                        <option value="2">경기</option>
-                        <option value="3">인천</option>
-                        <option value="4">강원</option>
-                        <option value="5">경남</option>
-                        <option value="6">경북</option>
-                        <option value="7">광주</option>
-                        <option value="8">대구</option>
-                        <option value="9">대전</option>
-                        <option value="10">부산</option>
-                        <option value="11">세종</option>
-                        <option value="12">울산</option>
-                        <option value="13">전남</option>
-                        <option value="14">전북</option>
-                        <option value="15">제주</option>
-                        <option value="16">충남</option>
-                        <option value="17">충북</option>
+                <div class="select">
+                    <th scope="col 1">지역
+                        <select name= "areasel" onchange="areasel()" id="areasel" class="areaselect">
+                            <option selected>전체</option>
+                            <option value="1">서울</option>
+                            <option value="2">경기</option>
+                            <option value="3">인천</option>
+                            <option value="4">강원</option>
+                            <option value="5">경남</option>
+                            <option value="6">경북</option>
+                            <option value="7">광주</option>
+                            <option value="8">대구</option>
+                            <option value="9">대전</option>
+                            <option value="10">부산</option>
+                            <option value="11">세종</option>
+                            <option value="12">울산</option>
+                            <option value="13">전남</option>
+                            <option value="14">전북</option>
+                            <option value="15">제주</option>
+                            <option value="16">충남</option>
+                            <option value="17">충북</option>
 
-                    </select>
-                </th>
-                <th scope="col 2">학교
-                    <select class="university-select">
-                        <option selected>전체</option>
-                        <option value="1">가톨릭대학교</option>
-                        <option value="2">가톨릭대학교(2캠)</option>
-                        <option value="3">건국대학교</option>
-                        <option value="4">경기대학교</option>
-                        <option value="5">경기대학교(2캠)</option>
-                        <option value="6">경북대학교</option>
-                        <option value="7">경희대학교</option>
-                        <option value="8">광운대학교</option>
-                        <option value="9">단국대학교</option>
-                        <option value="10">덕성여자대학교</option>
-                        <option value="11">동국대학교</option>
-                        <option value="12">부산대학교</option>
-                        <option value="13">서강대학교</option>
-                        <option value="14">서울과학기술대학교</option>
-                        <option value="15">서울시립대학교</option>
-                        <option value="16">서울여자대학교</option>
-                        <option value="17">성균관대학교</option>
-                        <option value="18">성신여자대학교</option>
-                        <option value="19">세종대학교</option>
-                        <option value="20">숙명여자대학교</option>
-                        <option value="21">숭실대학교</option>
-                        <option value="22">아주대학교</option>
-                        <option value="23">연세대학교</option>
-                        <option value="24">연세대학교(미래)</option>
-                        <option value="25">울산대학교</option>
-                        <option value="26">이화여자대학교</option>
-                        <option value="27">인하대학교</option>
-                        <option value="28">중앙대학교</option>
-                        <option value="29">중앙대학교(2캠)</option>
-                        <option value="30">한국기술교육대학교</option>
-                        <option value="31">한국산업기술대학교</option>
-                        <option value="32">한국외국어대학교</option>
-                        <option value="33">한국항공대학교</option>
-                        <option value="34">한양대학교</option>
-                        <option value="35">한양대학교(ERICA)</option>
-                        <option value="36">홍익대학교</option>
-                    </select>
-                </th>
-                <th scope="col 3">학과</th>
-                <th scope="col 4">모집인원</th>
-                <th scope="col 5">20'경쟁률</th>
-                <th scope="col 6">반영비율</th>
-
+                        </select>
+                    </th>
+                    <th scope="col 2">학교
+<!--                        <select name= "univ-sel" onchange="sel_univ()" id="univsel" class="university-select">-->
+<!--                            <option selected>전체</option>-->
+<!--                            <option value="1">가톨릭대학교</option>-->
+<!--                            <option value="2">가톨릭대학교(2캠)</option>-->
+<!--                            <option value="3">건국대학교</option>-->
+<!--                            <option value="4">경기대학교</option>-->
+<!--                            <option value="5">경기대학교(2캠)</option>-->
+<!--                            <option value="6">경북대학교</option>-->
+<!--                            <option value="7">경희대학교</option>-->
+<!--                            <option value="8">광운대학교</option>-->
+<!--                            <option value="9">단국대학교</option>-->
+<!--                            <option value="10">덕성여자대학교</option>-->
+<!--                            <option value="11">동국대학교</option>-->
+<!--                            <option value="12">부산대학교</option>-->
+<!--                            <option value="13">서강대학교</option>-->
+<!--                            <option value="14">서울과학기술대학교</option>-->
+<!--                            <option value="15">서울시립대학교</option>-->
+<!--                            <option value="16">서울여자대학교</option>-->
+<!--                            <option value="17">성균관대학교</option>-->
+<!--                            <option value="18">성신여자대학교</option>-->
+<!--                            <option value="19">세종대학교</option>-->
+<!--                            <option value="20">숙명여자대학교</option>-->
+<!--                            <option value="21">숭실대학교</option>-->
+<!--                            <option value="22">아주대학교</option>-->
+<!--                            <option value="23">연세대학교</option>-->
+<!--                            <option value="24">연세대학교(미래)</option>-->
+<!--                            <option value="25">울산대학교</option>-->
+<!--                            <option value="26">이화여자대학교</option>-->
+<!--                            <option value="27">인하대학교</option>-->
+<!--                            <option value="28">중앙대학교</option>-->
+<!--                            <option value="29">중앙대학교(2캠)</option>-->
+<!--                            <option value="30">한국기술교육대학교</option>-->
+<!--                            <option value="31">한국산업기술대학교</option>-->
+<!--                            <option value="32">한국외국어대학교</option>-->
+<!--                            <option value="33">한국항공대학교</option>-->
+<!--                            <option value="34">한양대학교</option>-->
+<!--                            <option value="35">한양대학교(ERICA)</option>-->
+<!--                            <option value="36">홍익대학교</option>-->
+<!--                        </select>-->
+                    </th>
+                    <th scope="col 3">학과</th>
+                    <th scope="col 4">모집인원</th>
+                    <th scope="col 5">20'경쟁률</th>
+                    <th scope="col 6">반영비율</th>
+                </div>
             </tr>
 
             </thead>

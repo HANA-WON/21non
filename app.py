@@ -16,11 +16,17 @@ def searchsub():
     query_receive = request.args['subject']
     list(db.nonsul.find({'subject': {'$regex': query_receive}}))
 
-    
+
 @app.route('/nonsul')
 def screening():
     screenings = list(db.nonsul.find({}, {'_id': 0}))
     result = {'result': 'success', "screenings" : screenings}
+    return jsonify(result)
+
+@app.route('/nonsul')
+def areasel():
+    areasels = list(db.nonsul.find({}, {'_id': 0}))
+    result = {'result': 'success', "areasels" : areasels}
     return jsonify(result)
 
 if __name__ == '__main__':
